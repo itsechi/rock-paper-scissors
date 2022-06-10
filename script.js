@@ -46,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
 
 // function that lets you play 5 rounds, calculate the score and declare a winner
 function game() {
-    for (let i = 0; i < 5; i++) {
+    while (playerScore < 5 && computerScore < 5) {
         const playerSelection = playerPlay();
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
