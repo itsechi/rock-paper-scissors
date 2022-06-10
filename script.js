@@ -38,7 +38,7 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         return 'You lose!'
     } else {
-        return 'Type only rock, paper or scissors';
+        alert('Type only rock, paper or scissors');
     }
 }
 
