@@ -1,12 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
 
-// computerPlay that will randomly return either rock, paper or scissors
-function computerPlay() {
-  let computerSelection = Math.floor(Math.random() * 3); 
-  return (computerSelection == 0) ? 'rock' : (computerSelection == 1) ? 'paper' : 'scissors';
-}
 
+const displayPick = document.querySelector('#displayPick');
+const result = document.querySelector('#result');
+const playerPoints = document.querySelector('#playerPoints');
+const computerPoints = document.querySelector('#computerPoints');
 
 
 const scissors = document.querySelector('#scissors');
@@ -23,31 +22,72 @@ paper.addEventListener('click', () => {
 });
 
 
+// computerPlay that will randomly return either rock, paper or scissors
+function computerPlay() {
+  let computerSelection = Math.floor(Math.random() * 3); 
+  return (computerSelection == 0) ? 'rock' : (computerSelection == 1) ? 'paper' : 'scissors';
+}
+
+
+
 
 // a single round that takes two parameters playerSelection and computerSelection and returns a string declaring a winner
-function playRound(playerSelection) {
-  const computerSelection = computerPlay();
-  console.log('You chose: ' + playerSelection + ', ' + 'computer chose: ' + computerSelection + '!');
-    
+function playRound(playerSelection, computerSelection) {
+  computerSelection = computerPlay()
+  displayPick.textContent = ('You chose: ' + playerSelection + ', ' + 'computer chose: ' + computerSelection + '!');
+
   if (playerSelection == computerSelection) {
-    return 'It\'s a tie!';
+    result.textContent = "It's a tie!";
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
     playerScore++;
-    return 'You win!';
+    result.textContent = 'You win!';
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   } else if (playerSelection == 'rock' && computerSelection == 'paper') {
     computerScore++;
-    return 'You lose!';
+    result.textContent = 'You lose!';
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
     playerScore++;
-    return 'You win!';
+    result.textContent = 'You win!';
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
     computerScore++;
-    return 'You lose!';
+    result.textContent = 'You lose!';
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
     playerScore++;
-    return 'You win!';
+    result.textContent = 'You win!';
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   } else {
     computerScore++;
-    return 'You lose!'
+    result.textContent = 'You lose!';
+    playerPoints.textContent = 'Your score: ' + playerScore;
+    computerPoints.textContent = 'Computer score: ' + computerScore;
   }
+  checkScore();
 }
+
+function checkScore() {
+    if (playerScore === 5) {
+      result.textContent = 'You Win!';
+      restart();
+    } else if (computerScore === 5) {
+      result.textContent = 'You Lose!';
+      restart();
+    }
+  }
+
+function restart() {
+    computerSelection = '';
+    playerSelection = '';
+    playerScore = 0;
+    computerScore = 0;
+  }
+  
