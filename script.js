@@ -29,8 +29,6 @@ function computerPlay() {
 }
 
 
-
-
 // a single round that takes two parameters playerSelection and computerSelection and returns a string declaring a winner
 function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay()
@@ -76,10 +74,10 @@ function playRound(playerSelection, computerSelection) {
 
 function checkScore() {
     if (playerScore === 5) {
-      result.textContent = 'You Win!';
+      result.textContent = 'CONGRATS! YOU WIN!';
       restart();
     } else if (computerScore === 5) {
-      result.textContent = 'You Lose!';
+      result.textContent = 'OH NO! YOU LOST!';
       restart();
     }
   }
