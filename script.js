@@ -6,8 +6,15 @@ const displayPick = document.querySelector('#displayPick');
 const result = document.querySelector('#result');
 const playerPoints = document.querySelector('#playerPoints');
 const computerPoints = document.querySelector('#computerPoints');
+const endDisplay = document.querySelector('.endDisplay');
+const overlay = document.querySelector('.overlay');
+const endGameBtn = document.querySelector('.endGameBtn');
+const endResult = document.querySelector('#endResult');
 let playerScoreDisplay = document.querySelector('.playerScore');
 let computerScoreDisplay = document.querySelector('.computerScore');
+
+
+endGameBtn.addEventListener('click', restart);
 
 
 const scissors = document.querySelector('#scissors');
@@ -72,11 +79,15 @@ function playRound(playerSelection, computerSelection) {
 
 function checkScore() {
     if (playerScore === 5) {
-      result.textContent = 'CONGRATS! YOU WIN!';
-      restart();
+      endResult.textContent = 'Congrats, you win!';
+      endDisplay.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+
+
     } else if (computerScore === 5) {
-      result.textContent = 'OH NO! YOU LOST!';
-      restart();
+      endResult.textContent = 'Oh no, you lost!';
+      endDisplay.classList.remove('hidden');
+      overlay.classList.remove('hidden');
     }
   }
 
@@ -85,6 +96,12 @@ function restart() {
     playerSelection = '';
     playerScore = 0;
     computerScore = 0;
+    endDisplay.classList.add('hidden');
+    overlay.classList.add('hidden');
+    playerPoints.classList.add('hidden');
+    computerPoints.classList.add('hidden');
+    displayPick.textContent = '';
+    result.textContent = '';
   }
   
   function gameDisplay() {

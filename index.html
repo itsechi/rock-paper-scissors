@@ -7,18 +7,26 @@
     </head>
 
     <body>
-        <h1>CHOOSE YOUR WEAPON</h1>
-        <div id="buttons">
-            <img id="rock" src="images/rock.png">
-            <img id="paper" src="images/paper.png">
-            <img id="scissors" src="images/scissors.png">
+        <div class="endDisplay hidden">
+            <div id="endResult"></div>
+            <button class="endGameBtn">Play again</button>
         </div>
-        <div id="displayPick"></div>
-        <div id="result"></div>
-        <div id="scores">
-            <div id="playerPoints" class="hidden">Your score: <span class="playerScore">0</span></div>
-            <div id="computerPoints" class="hidden">Computer score: <span class="computerScore">0</span></div>
+        <div class="game">
+            <h1>CHOOSE YOUR WEAPON</h1>
+            <div id="buttons">
+                <img id="rock" src="images/rock.png">
+                <img id="paper" src="images/paper.png">
+                <img id="scissors" src="images/scissors.png">
+            </div>
+            <div id="displayPick"></div>
+            <div id="result"></div>
+            <div id="scores">
+                <div id="playerPoints" class="hidden">Your score: <span class="playerScore">0</span></div>
+                <div id="computerPoints" class="hidden">Computer score: <span class="computerScore">0</span></div>
+            </div>
         </div>
+        <div class="overlay hidden"></div>
     </body>
+    
     <script src="script.js"></script>
 </html>
