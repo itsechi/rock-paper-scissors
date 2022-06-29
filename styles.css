@@ -52,3 +52,11 @@ h1 {
     background-color: #522a27;
 }
 
+.hidden {
+    display: none;
+}
+
+.playerScore, .computerScore {
+    font-weight: 700;
+    font-size: 22px;
+}

@@ -6,6 +6,8 @@ const displayPick = document.querySelector('#displayPick');
 const result = document.querySelector('#result');
 const playerPoints = document.querySelector('#playerPoints');
 const computerPoints = document.querySelector('#computerPoints');
+let playerScoreDisplay = document.querySelector('.playerScore');
+let computerScoreDisplay = document.querySelector('.computerScore');
 
 
 const scissors = document.querySelector('#scissors');
@@ -36,38 +38,38 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection == computerSelection) {
     result.textContent = "It's a tie!";
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
     playerScore++;
     result.textContent = 'You win!';
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 'rock' && computerSelection == 'paper') {
     computerScore++;
     result.textContent = 'You lose!';
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
     playerScore++;
     result.textContent = 'You win!';
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
     computerScore++;
     result.textContent = 'You lose!';
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
     playerScore++;
     result.textContent = 'You win!';
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   } else {
     computerScore++;
     result.textContent = 'You lose!';
-    playerPoints.textContent = 'Your score: ' + playerScore;
-    computerPoints.textContent = 'Computer score: ' + computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
   }
   checkScore();
 }

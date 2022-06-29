@@ -11,4 +11,4 @@ First part was to create the game mechanics and display the results in the conso
 
 ## What could be improved
 * add start and end game buttons
-* change pick and score text to bold 
+* (DONE) change pick and score text to bold 
