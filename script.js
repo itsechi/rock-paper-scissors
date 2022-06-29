@@ -35,41 +35,37 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay()
   displayPick.textContent = ('You chose: ' + playerSelection + ', ' + 'computer chose: ' + computerSelection + '!');
+  playerPoints.classList.remove('hidden');
+  computerPoints.classList.remove('hidden');
+
 
   if (playerSelection == computerSelection) {
     result.textContent = "It's a tie!";
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
     playerScore++;
     result.textContent = 'You win!';
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   } else if (playerSelection == 'rock' && computerSelection == 'paper') {
     computerScore++;
     result.textContent = 'You lose!';
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
     playerScore++;
     result.textContent = 'You win!';
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
     computerScore++;
     result.textContent = 'You lose!';
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
     playerScore++;
     result.textContent = 'You win!';
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   } else {
     computerScore++;
     result.textContent = 'You lose!';
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    gameDisplay();
   }
   checkScore();
 }
@@ -91,3 +87,7 @@ function restart() {
     computerScore = 0;
   }
   
+  function gameDisplay() {
+  playerScoreDisplay.textContent = playerScore;
+  computerScoreDisplay.textContent = computerScore;
+}
